@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أودي | Odi - عُمان ديفلوبر للبرمجيات وتطوير المواقع والتطبيقات</title>
+    <meta name="description" content="أودي (عُمان ديفلوبر) - شريكك التقني الأول في سلطنة عُمان لتطوير المواقع الإلكترونية، تطبيقات الهواتف الذكية، والأنظمة البرمجية المخصصة.">
+    
+    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+                        heading: ['"Cairo"', 'sans-serif'],
+                    },
+                    colors: {
+                        odi: {
+                            bg: '#06070D',
+                            surface: '#0C0F1D',
+                            card: '#111424',
+                            purple: '#9D4EDD',
+                            violet: '#7B2CBF',
+                            blue: '#3A86FF',
+                            cyan: '#64DFDF',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #06070D;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Tech Grid Background */
+        .tech-grid {
+            background-size: 48px 48px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 20, 36, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(157, 78, 221, 0.45);
+            box-shadow: 0 12px 35px -10px rgba(157, 78, 221, 0.25), 0 0 20px -5px rgba(58, 134, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        /* Brand Gradient Text */
+        .text-odi-gradient {
+            background: linear-gradient(135deg, #FFFFFF 15%, #9D4EDD 55%, #3A86FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-odi-accent {
+            background: linear-gradient(90deg, #C77DFF 0%, #3A86FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Brand Gradient Buttons */
+        .btn-odi-primary {
+            background: linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 45%, #3A86FF 100%);
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-odi-primary:hover {
+            box-shadow: 0 8px 28px rgba(58, 134, 255, 0.5);
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #06070D;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #7B2CBF, #3A86FF);
+            border-radius: 4px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-odi-purple selection:text-white">
+
+    <!-- Ambient Radial Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-odi-violet/20 blur-[130px] animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -left-40 w-[450px] h-[450px] rounded-full bg-odi-blue/15 blur-[130px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full bg-odi-purple/10 blur-[140px]"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 1. STICKY GLASSMORPHIC NAVBAR              -->
+    <!-- ========================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-white/5 bg-[#06070D]/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo & Name -->
+                <a href="#home" class="flex items-center gap-3.5 group">
+                    <!-- Custom Faithful SVG Logo matching the uploaded hexagonal P/O logo -->
+                    <div class="relative w-12 h-12 rounded-xl bg-[#070811] border border-white/10 flex items-center justify-center shadow-lg group-hover:border-odi-purple/50 transition-all">
+                        <svg viewBox="0 0 120 130" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Left Purple-Indigo Pillar Gradient -->
+                                <linearGradient id="odiPurpleGrad" x1="22" y1="42" x2="36" y2="96" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#D946EF"/>
+                                    <stop offset="50%" stop-color="#9333EA"/>
+                                    <stop offset="100%" stop-color="#4F46E5"/>
+                                </linearGradient>
+                                <!-- Outer & Inner White-to-Sky-Blue Hexagonal Gradient -->
+                                <linearGradient id="odiIceBlueGrad" x1="40" y1="16" x2="95" y2="112" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#FFFFFF"/>
+                                    <stop offset="55%" stop-color="#E0F2FE"/>
+                                    <stop offset="82%" stop-color="#7DD3FC"/>
+                                    <stop offset="100%" stop-color="#38BDF8"/>
+                                </linearGradient>
+                                <!-- Subtle Inner Shadow Depth -->
+                                <linearGradient id="odiDepthGrad" x1="36" y1="68" x2="72" y2="52" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#090D1F"/>
+                                    <stop offset="100%" stop-color="#1E3A8A" stop-opacity="0.45"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Depth Shadow Bridge -->
+                            <path d="M36 62 L66 45 L76 52 L76 62 L36 85 Z" fill="url(#odiDepthGrad)"/>
+                            <!-- Left Vertical Purple Bar -->
+                            <path d="M22 43 L36 51 V97 L22 89 Z" fill="url(#odiPurpleGrad)"/>
+                            <!-- Outer Hexagonal Shell (White to Electric Blue) -->
+                            <path d="M23 36 L62 14 C64 13 66 13 68 14 L102 34 C104 35 105 37 105 39 V87 C105 89 104 91 102 92 L60 116 V100 L91 82 V44 L65 29 L37 45 Z" fill="url(#odiIceBlueGrad)"/>
+                            <!-- Inner Geometric Hook (White to Electric Blue) -->
+                            <path d="M44 49 L63 38 C65 37 67 37 69 38 L83 46 C85 47 86 49 86 51 V64 C86 66 85 68 83 69 L60 82 V67 L72 60 V54 L65 50 L56 56 Z" fill="url(#odiIceBlueGrad)"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2">
+                            <span class="font-heading font-black text-2xl tracking-tight text-white">أودي</span>
+                            <span class="text-xs font-bold tracking-widest uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-odi-cyan">ODI</span>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">عُمان ديفلوبر | Oman Developer</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                    <a href="#home" class="hover:text-white transition-colors">الرئيسية</a>
+                    <a href="#services" class="hover:text-white transition-colors">خدماتنا</a>
+                    <a href="#portfolio" class="hover:text-white transition-colors">أعمالنا</a>
+                    <a href="#process" class="hover:text-white transition-colors">منهجية العمل</a>
+                    <a href="#estimator" class="hover:text-odi-cyan transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-calculator text-xs text-odi-purple"></i>
+                        حاسبة المشاريع
+                    </a>
+                    <a href="#contact" class="hover:text-white transition-colors">تواصل معنا</a>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 btn-odi-primary text-white font-heading font-bold text-sm px-5 py-2.5 rounded-xl">
+                        <span>ابدأ مشروعك</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" aria-label="القائمة" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A0C16]/95 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 font-semibold">الرئيسية</a>
+            <a href="#services" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 font-semibold">خدماتنا</a>
+            <a href="#portfolio" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 font-semibold">أعمالنا</a>
+            <a href="#process" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 font-semibold">منهجية العمل</a>
+            <a href="#estimator" class="mobile-link block px-4 py-2.5 rounded-xl text-odi-cyan hover:bg-white/5 font-semibold">حاسبة تكلفة المشروع</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 font-semibold">تواصل معنا</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block text-center btn-odi-primary text-white font-heading font-bold py-3 rounded-xl">
+                    ابدأ مشروعك الآن
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION                            -->
+    <!-- ========================================== -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 tech-grid overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Right Content (Text & CTAs) -->
+                <div class="lg:col-span-7 text-center lg:text-right space-y-7">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-odi-purple/30 shadow-inner">
+                        <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-odi-purple to-odi-blue animate-ping"></span>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">شريكك التقني الأول في سلطنة عُمان 🇴🇲</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl leading-[1.2] text-white">
+                        نحول أفكارك الطموحة إلى
+                        <span class="block text-odi-gradient mt-2">حلول رقمية متكاملة</span>
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        في <strong class="text-white">أودي (عُمان ديفلوبر)</strong>، نصمم ونطور المواقع الإلكترونية، تطبيقات الهواتف الذكية، والأنظمة البرمجية المخصصة بأحدث التقنيات العالمية لنمنح أعمالك حضوراً رقمياً استثنائياً وأداءً فائق السرعة.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="w-full sm:w-auto btn-odi-primary text-white font-heading font-bold px-8 py-4 rounded-2xl flex items-center justify-center gap-3 text-base">
+                            <span>اطلب استشارة مجانية</span>
+                            <i class="fa-solid fa-sparkles"></i>
+                        </a>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-white font-heading font-bold flex items-center justify-center gap-3 transition-all text-base">
+                            <span>استكشف أعمالنا</span>
+                            <i class="fa-solid fa-layer-group text-odi-blue"></i>
+                        </a>
+                    </div>
+
+                    <!-- Key Statistics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-xl mx-auto lg:mx-0">
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-white">+50</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">مشروع تقني منجز</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-odi-cyan">99%</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">نسبة رضا العملاء</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-odi-purple">24/7</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-1">دعم فني متواصل</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Visual Showcase (Floating 3D Logo & Code Dashboard Card) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md">
+                        <!-- Outer Aura -->
+                        <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-odi-purple/30 via-odi-blue/20 to-transparent blur-2xl"></div>
+                        
+                        <!-- Main Glass Card -->
+                        <div class="relative glass-card rounded-3xl p-6 sm:p-8 border border-white/15 animate-float">
+                            <!-- Top Window Controls -->
+                            <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-400">odi-oman.dev</span>
+                            </div>
+
+                            <!-- Center Large Brand Emblem -->
+                            <div class="flex flex-col items-center justify-center py-4">
+                                <div class="relative w-36 h-36 rounded-3xl bg-[#05060B] border border-white/10 flex items-center justify-center shadow-[0_0_50px_rgba(157,78,221,0.28)]">
+                                    <svg viewBox="0 0 120 130" class="w-28 h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M36 62 L66 45 L76 52 L76 62 L36 85 Z" fill="url(#odiDepthGrad)"/>
+                                        <path d="M22 43 L36 51 V97 L22 89 Z" fill="url(#odiPurpleGrad)"/>
+                                        <path d="M23 36 L62 14 C64 13 66 13 68 14 L102 34 C104 35 105 37 105 39 V87 C105 89 104 91 102 92 L60 116 V100 L91 82 V44 L65 29 L37 45 Z" fill="url(#odiIceBlueGrad)"/>
+                                        <path d="M44 49 L63 38 C65 37 67 37 69 38 L83 46 C85 47 86 49 86 51 V64 C86 66 85 68 83 69 L60 82 V67 L72 60 V54 L65 50 L56 56 Z" fill="url(#odiIceBlueGrad)"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-heading font-extrabold text-xl text-white mt-5">هندسة برمجية بمعايير عالمية</h3>
+                                <p class="text-xs text-slate-400 mt-1 text-center">أداء فائق • أمان متقدم • تصميم عصري</p>
+                            </div>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="grid grid-cols-2 gap-3 mt-6 pt-5 border-t border-white/10 text-xs">
+                                <div class="flex items-center gap-2.5 bg-white/[0.03] p-2.5 rounded-xl border border-white/5">
+                                    <i class="fa-solid fa-bolt text-odi-cyan"></i>
+                                    <span class="text-slate-200 font-medium">سرعة استجابة فائقة</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-white/[0.03] p-2.5 rounded-xl border border-white/5">
+                                    <i class="fa-solid fa-shield-halved text-odi-purple"></i>
+                                    <span class="text-slate-200 font-medium">حماية وتشفير شامل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. SERVICES SECTION (خدماتنا)              -->
+    <!-- ========================================== -->
+    <section id="services" class="py-20 lg:py-28 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-odi-purple/15 text-odi-purple border border-odi-purple/30">
+                    خدماتنا التقنية
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-4">
+                    حلول برمجية متكاملة لنمو <span class="text-odi-accent">أعمالك الرقمية</span>
+                </h2>
+                <p class="text-slate-400 mt-4 text-base sm:text-lg">
+                    نقدم باقة شاملة من الخدمات البرمجية المصممة خصيصاً لتلبية تطلعات الشركات ورواد الأعمال في سلطنة عُمان والخليج.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Service 1 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-cyan mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">تطوير المواقع الإلكترونية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        بناء مواقع تعريفية، منصات مؤسسية، وبوابات إلكترونية تفاعلية فائقة السرعة ومتوافقة مع محركات البحث (SEO) وجميع الشاشات.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">React / Next.js</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Laravel</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Tailwind</span>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-purple mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">تطوير تطبيقات الهواتف الذكية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        تصميم وبرمجة تطبيقات احترافية لنظامي iOS و Android بتجربة مستخدم سلسة وأداء عالٍ مع الربط الكامل بالخرائط والإشعارات.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">React Native</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">iOS & Android</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">تصميم واجهات وتجربة المستخدم</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        دراسة سلوك المستخدم وتصميم واجهات عصرية جذابة (UI/UX) ونماذج أولية تفاعلية تعكس هوية علامتك التجارية وتزيد من ولاء العملاء.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Figma</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Design Systems</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Prototyping</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-cyan mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">الأنظمة السحابية والبرمجيات المخصصة</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        تطوير أنظمة إدارة الموارد (ERP)، إدارة العملاء (CRM)، ومنصات SaaS سحابية قابلة للتوسع لأتمتة عمليات شركتك بالكامل.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Node.js</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Cloud AWS</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">REST & GraphQL</span>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-purple mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">التجارة الإلكترونية وحلول الدفع</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        إنشاء متاجر إلكترونية متكاملة مع ربط بوابات الدفع العُمانية والخليجية (ثواني، ميسر، البطاقات البنكية) وشركات الشحن والتوصيل.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">Thawani Pay</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">إدارة المخزون</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">تعدد العملات</span>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-card rounded-3xl p-7 reveal group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-odi-purple/25 to-odi-blue/25 border border-white/10 flex items-center justify-center text-2xl text-odi-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3">الاستشارات التقنية والأمن السيبراني</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        تدقيق الأمان البرمجي، تحسين أداء قواعد البيانات، وتقديم خارطة طريق تقنية شاملة للتحول الرقمي في المؤسسات والشركات الناشئة.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">فحص الثغرات</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">تحسين الأداء</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/5">دعم وصيانة</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. PORTFOLIO SECTION (أعمالنا المختارة)    -->
+    <!-- ========================================== -->
+    <section id="portfolio" class="py-20 lg:py-28 bg-[#090B14]/80 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header & Filter Tabs -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 reveal">
+                <div>
+                    <span class="text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-odi-blue/15 text-odi-cyan border border-odi-blue/30">
+                        معرض الأعمال
+                    </span>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-4">
+                        مشاريع رقمية نفخر <span class="text-odi-accent">بإنجازها</span>
+                    </h2>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="portfolio-filters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-odi-violet to-odi-blue text-white transition-all">
+                        الكل
+                    </button>
+                    <button data-filter="web" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+                        مواقع إلكترونية
+                    </button>
+                    <button data-filter="app" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+                        تطبيقات جوال
+                    </button>
+                    <button data-filter="system" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+                        أنظمة برمجية
+                    </button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid (Populated via JS for rich modal interactivity) -->
+            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Cards injected dynamically by script -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. PROCESS SECTION (منهجية العمل في أودي)  -->
+    <!-- ========================================== -->
+    <section id="process" class="py-20 lg:py-28 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-odi-purple/15 text-odi-purple border border-odi-purple/30">
+                    كيف نعمل
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-4">
+                    منهجية العمل في <span class="text-odi-accent">أودي</span>
+                </h2>
+                <p class="text-slate-400 mt-4 text-base sm:text-lg">
+                    نتبع خطوات هندسية مدروسة تضمن تحويل رؤيتك إلى منتج رقمي متكامل بأعلى جودة وفي الوقت المحدد.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden reveal">
+                    <span class="absolute -top-4 -left-2 font-heading font-black text-8xl text-white/[0.03] select-none">01</span>
+                    <div class="w-12 h-12 rounded-2xl bg-odi-purple/20 border border-odi-purple/40 flex items-center justify-center font-heading font-black text-lg text-odi-purple mb-5">
+                        1
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">التحليل والتخطيط</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        نستمع لأهدافك بدقة، نحلل السوق والمنافسين، ونضع خطة تقنية وزمنية واضحة لكل ميزة في المشروع.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden reveal">
+                    <span class="absolute -top-4 -left-2 font-heading font-black text-8xl text-white/[0.03] select-none">02</span>
+                    <div class="w-12 h-12 rounded-2xl bg-odi-blue/20 border border-odi-blue/40 flex items-center justify-center font-heading font-black text-lg text-odi-blue mb-5">
+                        2
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">التصميم والنماذج الأولية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        نصمم واجهات مستخدم عصرية وتفاعلية (UI/UX) تتيح لك تجربة رحلة المستخدم كاملة قبل بدء البرمجة.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden reveal">
+                    <span class="absolute -top-4 -left-2 font-heading font-black text-8xl text-white/[0.03] select-none">03</span>
+                    <div class="w-12 h-12 rounded-2xl bg-odi-cyan/20 border border-odi-cyan/40 flex items-center justify-center font-heading font-black text-lg text-odi-cyan mb-5">
+                        3
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">البرمجة والتطوير</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        يكتب فريقنا البرمجي كوداً نظيفاً وآمناً بأحدث التقنيات مع اختبارات جودة مستمرة لضمان الأداء المثالي.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden reveal">
+                    <span class="absolute -top-4 -left-2 font-heading font-black text-8xl text-white/[0.03] select-none">04</span>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-odi-purple to-odi-blue flex items-center justify-center font-heading font-black text-lg text-white mb-5">
+                        4
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">الإطلاق والدعم المستمر</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        نطلق مشروعك على الخوادم السحابية أو متاجر التطبيقات مع تدريب فريقك وتقديم دعم فني متواصل.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. INTERACTIVE PROJECT ESTIMATOR           -->
+    <!-- ========================================== -->
+    <section id="estimator" class="py-20 lg:py-28 bg-[#090B14]/90 border-y border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <span class="text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-odi-cyan/15 text-odi-cyan border border-odi-cyan/30">
+                    أداة ذكية تفاعلية
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-4">
+                    حاسبة تكلفة ومدة <span class="text-odi-accent">مشروعك التقني</span>
+                </h2>
+                <p class="text-slate-400 mt-3 text-base">
+                    اختر نوع المشروع والمميزات الإضافية لتحصل على تقدير فوري للتكلفة بالريال العُماني والمدة الزمنية المتوقعة.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/15 reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Controls Column -->
+                    <div class="lg:col-span-7 space-y-7">
+                        <!-- Step 1: Project Type -->
+                        <div>
+                            <label class="block font-heading font-bold text-white text-lg mb-3">
+                                1. اختر نوع المشروع الأساسي:
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="project-type-options">
+                                <button type="button" data-type="موقع تعريفي" data-price="250" data-days="10" class="est-type-btn active text-right p-4 rounded-2xl border border-odi-purple bg-odi-purple/15 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-heading font-bold text-white">موقع تعريفي لشركة</span>
+                                        <i class="fa-solid fa-globe text-odi-cyan"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-300 mt-1 block">يبدأ من 250 ر.ع</span>
+                                </button>
+
+                                <button type="button" data-type="متجر إلكتروني" data-price="450" data-days="18" class="est-type-btn text-right p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-white/25 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-heading font-bold text-white">متجر إلكتروني متكامل</span>
+                                        <i class="fa-solid fa-bag-shopping text-odi-purple"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400 mt-1 block">يبدأ من 450 ر.ع</span>
+                                </button>
+
+                                <button type="button" data-type="تطبيق جوال" data-price="850" data-days="30" class="est-type-btn text-right p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-white/25 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-heading font-bold text-white">تطبيق جوال (iOS & Android)</span>
+                                        <i class="fa-solid fa-mobile-screen text-odi-blue"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400 mt-1 block">يبدأ من 850 ر.ع</span>
+                                </button>
+
+                                <button type="button" data-type="نظام برمجي متكامل" data-price="1200" data-days="45" class="est-type-btn text-right p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-white/25 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-heading font-bold text-white">نظام برمجي / منصة SaaS</span>
+                                        <i class="fa-solid fa-cubes text-odi-cyan"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400 mt-1 block">يبدأ من 1,200 ر.ع</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Additional Features -->
+                        <div>
+                            <label class="block font-heading font-bold text-white text-lg mb-3">
+                                2. المميزات والإضافات المطلوبة:
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="feature-options">
+                                <label class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" data-name="لوحة تحكم إدارية متقدمة" data-price="120" data-days="5" class="est-feature w-4 h-4 accent-odi-purple rounded">
+                                        <span class="text-sm font-medium text-slate-200">لوحة تحكم إدارية</span>
+                                    </div>
+                                    <span class="text-xs text-odi-cyan font-semibold">+120 ر.ع</span>
+                                </label>
+
+                                <label class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" data-name="ربط بوابة دفع إلكتروني (ثواني/بطاقات)" data-price="90" data-days="3" class="est-feature w-4 h-4 accent-odi-purple rounded">
+                                        <span class="text-sm font-medium text-slate-200">بوابة دفع إلكتروني</span>
+                                    </div>
+                                    <span class="text-xs text-odi-cyan font-semibold">+90 ر.ع</span>
+                                </label>
+
+                                <label class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" data-name="دعم تعدد اللغات (عربي / إنجليزي)" data-price="80" data-days="3" class="est-feature w-4 h-4 accent-odi-purple rounded">
+                                        <span class="text-sm font-medium text-slate-200">تعدد اللغات (عربي/إنجليزي)</span>
+                                    </div>
+                                    <span class="text-xs text-odi-cyan font-semibold">+80 ر.ع</span>
+                                </label>
+
+                                <label class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" data-name="تصميم هوية وواجهات UI/UX مخصصة" data-price="150" data-days="6" class="est-feature w-4 h-4 accent-odi-purple rounded">
+                                        <span class="text-sm font-medium text-slate-200">تصميم UI/UX خاص</span>
+                                    </div>
+                                    <span class="text-xs text-odi-cyan font-semibold">+150 ر.ع</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Output Box -->
+                    <div class="lg:col-span-5 bg-[#070912] border border-odi-purple/30 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_0_40px_rgba(157,78,221,0.12)]">
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                                <span class="text-sm font-semibold text-slate-400">ملخص التقدير المبدئي</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-odi-purple/20 text-odi-purple text-xs font-bold" id="est-selected-type">موقع تعريفي</span>
+                            </div>
+
+                            <div class="py-6 space-y-5">
+                                <div>
+                                    <span class="text-xs text-slate-400 block">التكلفة التقديرية الابتدائية:</span>
+                                    <div class="flex items-baseline gap-2 mt-1">
+                                        <span id="est-total-price" class="font-heading font-black text-4xl sm:text-5xl text-odi-gradient">250</span>
+                                        <span class="font-heading font-bold text-lg text-white">ريال عُماني (OMR)</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                                    <i class="fa-regular fa-clock text-odi-cyan text-lg"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-400 block">المدة الزمنية المتوقعة للتنفيذ:</span>
+                                        <span id="est-total-days" class="font-heading font-bold text-white text-base">10 أيام عمل تقريباً</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <button type="button" id="apply-estimate-btn" class="w-full btn-odi-primary text-white font-heading font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 text-base">
+                                <span>اعتماد التقدير وإرساله كطلب</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            <p class="text-[11px] text-slate-500 text-center">
+                                * الأسعار تقديرية وتُحدد بدقة نهائية بعد جلسة تحليل المتطلبات المجانية.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. CONTACT SECTION (تواصل معنا)            -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-20 lg:py-28 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact Information -->
+                <div class="lg:col-span-5 space-y-7 reveal">
+                    <div>
+                        <span class="text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-odi-purple/15 text-odi-purple border border-odi-purple/30">
+                            تواصل معنا
+                        </span>
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-4 leading-tight">
+                            جاهزون لتحويل فكرتك إلى <span class="text-odi-accent">واقع رقمي ملموس</span>
+                        </h2>
+                        <p class="text-slate-400 mt-4 text-base leading-relaxed">
+                            تواصل مع فريق <strong class="text-white">أودي (عُمان ديفلوبر)</strong> اليوم للحصول على استشارة تقنية مجانية وعرض سعر مفصل يناسب ميزانيتك وأهدافك.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-odi-purple/20 flex items-center justify-center text-odi-purple text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">المقر الرئيسي</div>
+                                <div class="font-heading font-bold text-white">مسقط، سلطنة عُمان</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-odi-blue/20 flex items-center justify-center text-odi-blue text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">البريد الإلكتروني</div>
+                                <a href="mailto:hello@odi-oman.com" class="font-heading font-bold text-white hover:text-odi-cyan transition-colors" dir="ltr">hello@odi-oman.com</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">الهاتف والواتساب المباشر</div>
+                                <a href="tel:+96890000000" class="font-heading font-bold text-white hover:text-emerald-400 transition-colors" dir="ltr">+968 9123 4567</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Inquiry Form -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/15">
+                        <h3 class="font-heading font-bold text-2xl text-white mb-6">أرسل تفاصيل مشروعك</h3>
+                        
+                        <form id="contact-form" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="client-name" class="block text-sm font-medium text-slate-300 mb-2">الاسم الكامل *</label>
+                                    <input type="text" id="client-name" required placeholder="مثال: سالم بن محمد الحارثي" class="w-full px-4 py-3.5 rounded-xl bg-[#070912] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-odi-purple transition-colors">
+                                </div>
+                                <div>
+                                    <label for="client-phone" class="block text-sm font-medium text-slate-300 mb-2">رقم الهاتف / الواتساب *</label>
+                                    <input type="tel" id="client-phone" required placeholder="9XXXXXXX" dir="ltr" class="w-full px-4 py-3.5 rounded-xl bg-[#070912] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-odi-purple transition-colors text-right">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="client-email" class="block text-sm font-medium text-slate-300 mb-2">البريد الإلكتروني</label>
+                                    <input type="email" id="client-email" placeholder="name@company.om" dir="ltr" class="w-full px-4 py-3.5 rounded-xl bg-[#070912] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-odi-purple transition-colors text-right">
+                                </div>
+                                <div>
+                                    <label for="service-type" class="block text-sm font-medium text-slate-300 mb-2">نوع الخدمة المطلوبة</label>
+                                    <select id="service-type" class="w-full px-4 py-3.5 rounded-xl bg-[#070912] border border-white/10 text-white focus:outline-none focus:border-odi-purple transition-colors">
+                                        <option value="موقع إلكتروني">تطوير موقع إلكتروني</option>
+                                        <option value="تطبيق جوال">تطوير تطبيق جوال (iOS / Android)</option>
+                                        <option value="متجر إلكتروني">متجر إلكتروني متكامل</option>
+                                        <option value="نظام برمجي">نظام برمجي / SaaS مخصص</option>
+                                        <option value="تصميم UI/UX">تصميم واجهات وتجربة مستخدم</option>
+                                        <option value="استشارة تقنية">استشارة تقنية / أخرى</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="project-details" class="block text-sm font-medium text-slate-300 mb-2">تفاصيل المشروع أو الفكرة *</label>
+                                <textarea id="project-details" rows="4" required placeholder="حدثنا باختصار عن فكرة مشروعك، الأهداف، أو المميزات التي ترغب في إضافتها..." class="w-full px-4 py-3.5 rounded-xl bg-[#070912] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-odi-purple transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full btn-odi-primary text-white font-heading font-bold py-4 rounded-2xl text-base flex items-center justify-center gap-3">
+                                <span>إرسال الطلب الآن</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                        <!-- Instant Feedback Message Box (No alert() used) -->
+                        <div id="form-success-msg" class="hidden mt-6 p-5 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 flex items-start gap-3.5">
+                            <i class="fa-solid fa-circle-check text-2xl text-emerald-400 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-heading font-bold text-white text-base">تم استلام طلبك بنجاح!</h4>
+                                <p class="text-sm text-emerald-200/90 mt-1">
+                                    شكراً لتواصلك مع <strong class="text-white">أودي (عُمان ديفلوبر)</strong>. سيقوم فريقنا الهندسي بمراجعة طلبك والتواصل معك خلال ساعات قليلة.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 8. FOOTER                                  -->
+    <!-- ========================================== -->
+    <footer class="bg-[#04050A] border-t border-white/10 pt-16 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand Col -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-[#070811] border border-white/10 flex items-center justify-center">
+                            <svg viewBox="0 0 120 130" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M36 62 L66 45 L76 52 L76 62 L36 85 Z" fill="url(#odiDepthGrad)"/>
+                                <path d="M22 43 L36 51 V97 L22 89 Z" fill="url(#odiPurpleGrad)"/>
+                                <path d="M23 36 L62 14 C64 13 66 13 68 14 L102 34 C104 35 105 37 105 39 V87 C105 89 104 91 102 92 L60 116 V100 L91 82 V44 L65 29 L37 45 Z" fill="url(#odiIceBlueGrad)"/>
+                                <path d="M44 49 L63 38 C65 37 67 37 69 38 L83 46 C85 47 86 49 86 51 V64 C86 66 85 68 83 69 L60 82 V67 L72 60 V54 L65 50 L56 56 Z" fill="url(#odiIceBlueGrad)"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-heading font-black text-xl text-white">أودي | Odi</span>
+                            <span class="block text-xs text-slate-400">عُمان ديفلوبر للبرمجيات والتقنية</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-md">
+                        وكالة عُمانية رائدة متخصصة في هندسة البرمجيات، تطوير المواقع الإلكترونية، وبناء تطبيقات الهواتف الذكية بأحدث التقنيات العالمية.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#contact" aria-label="X Twitter" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-odi-purple/30 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#contact" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-odi-purple/30 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#contact" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-odi-blue/30 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#contact" aria-label="GitHub" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-odi-blue/30 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-odi-cyan transition-colors">الرئيسية</a></li>
+                        <li><a href="#services" class="hover:text-odi-cyan transition-colors">خدماتنا البرمجية</a></li>
+                        <li><a href="#portfolio" class="hover:text-odi-cyan transition-colors">معرض الأعمال</a></li>
+                        <li><a href="#process" class="hover:text-odi-cyan transition-colors">منهجية العمل</a></li>
+                        <li><a href="#estimator" class="hover:text-odi-cyan transition-colors">حاسبة تكلفة المشروع</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">مجالات التخصص</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#services" class="hover:text-white transition-colors">تطوير المواقع والمنصات</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">تطبيقات iOS و Android</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">المتاجر الإلكترونية</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">أنظمة ERP و SaaS</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">تصميم واجهات UI/UX</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 أودي (عُمان ديفلوبر) - جميع الحقوق محفوظة.</p>
+                <p>صُنع بشغف وإتقان في سلطنة عُمان 🇴🇲</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- PORTFOLIO PREVIEW MODAL                    -->
+    <!-- ========================================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card bg-[#0D101F] border border-white/15 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl transform transition-all">
+            <button id="close-modal-btn" aria-label="إغلاق" class="absolute top-5 left-5 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div id="modal-badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-odi-purple/20 text-odi-purple border border-odi-purple/30 mb-3"></div>
+            <h3 id="modal-title" class="font-heading font-black text-2xl sm:text-3xl text-white mb-3"></h3>
+            
+            <!-- Visual Preview Banner -->
+            <div id="modal-banner" class="w-full h-44 rounded-2xl mb-5 flex items-center justify-center relative overflow-hidden border border-white/10"></div>
+
+            <p id="modal-desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5"></p>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-bold uppercase text-slate-400 mb-2.5">التقنيات والأدوات المستخدمة:</h4>
+                <div id="modal-tech" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/10">
+                <a href="#contact" id="modal-request-similar" class="flex-1 btn-odi-primary text-white font-heading font-bold py-3.5 px-6 rounded-xl text-center text-sm">
+                    اطلب مشروعاً مشابهاً الآن
+                </a>
+                <button type="button" id="modal-close-secondary" class="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-sm">
+                    إغلاق المعاينة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT INTERACTIVITY                   -->
+    <!-- ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2. Portfolio Data & Dynamic Rendering
+            const projects = [
+                {
+                    id: 1,
+                    title: 'منصة مسقط العقارية',
+                    category: 'web',
+                    categoryLabel: 'مواقع إلكترونية',
+                    summary: 'بوابة عقارية ذكية تتيح البحث التفاعلي بالخرائط عن العقارات في مختلف محافظات سلطنة عُمان مع حجز المعاينات الفورية.',
+                    fullDesc: 'تم تطوير منصة مسقط العقارية لتكون المرجع الأول للباحثين عن العقارات في السلطنة، حيث تتضمن نظام فلترة متقدم، خرائط تفاعلية، لوحة تحكم للمكاتب العقارية، ونظام إدارة طلبات المعاينة والتمويل.',
+                    tech: ['Next.js', 'Tailwind CSS', 'Node.js', 'Google Maps API', 'PostgreSQL'],
+                    icon: 'fa-building-columns',
+                    gradient: 'from-purple-900/60 via-indigo-900/50 to-blue-900/60'
+                },
+                {
+                    id: 2,
+                    title: 'تطبيق توصيل سريع (Saree)',
+                    category: 'app',
+                    categoryLabel: 'تطبيقات جوال',
+                    summary: 'تطبيق متكامل لخدمات التوصيل والطلبات الفورية في مسقط وصلالة مع تتبع حي لمسار المندوب على الخريطة.',
+                    fullDesc: 'منظومة تطبيقات متكاملة تشمل تطبيق العميل، تطبيق المندوب، ولوحة تحكم مركزية لإدارة الطلبات. يدعم الدفع الإلكتروني عبر ثواني، الإشعارات الفورية، وحساب رسوم التوصيل تلقائياً حسب المسافة.',
+                    tech: ['Flutter', 'Firebase', 'Laravel API', 'Thawani Pay', 'Live GPS'],
+                    icon: 'fa-motorcycle',
+                    gradient: 'from-blue-900/60 via-cyan-900/50 to-indigo-900/60'
+                },
+                {
+                    id: 3,
+                    title: 'نظام إدارة العيادات الذكي',
+                    category: 'system',
+                    categoryLabel: 'أنظمة برمجية',
+                    summary: 'نظام سحابي متكامل لإدارة المجمعات الطبية، حجز المواعيد، الملفات الإلكترونية للمرضى، والفوترة.',
+                    fullDesc: 'حل برمجي سحابي (SaaS) صُمم خصيصاً للمراكز الطبية والعيادات التخصصية في عُمان، يربط الاستقبال بالأطباء والصيدلية والمختبر في بيئة رقمية آمنة وسريعة.',
+                    tech: ['React', 'TypeScript', 'NestJS', 'Cloud Security', 'PDF Reports'],
+                    icon: 'fa-heart-pulse',
+                    gradient: 'from-violet-900/60 via-purple-900/50 to-slate-900/80'
+                },
+                {
+                    id: 4,
+                    title: 'متجر لبان عُمان الإلكتروني',
+                    category: 'web',
+                    categoryLabel: 'مواقع إلكترونية',
+                    summary: 'متجر إلكتروني فاخر لتسويق منتجات اللبان العُماني والعطور الشرقية محلياً ودولياً بتجربة تسوق سلسة.',
+                    fullDesc: 'تصميم وتطوير متجر إلكتروني بهوية بصرية فاخرة تدعم اللغتين العربية والإنجليزية، مع دعم تعدد العملات، بوابات الدفع الخليجية والعالمية، والربط المباشر مع شركات الشحن الدولي.',
+                    tech: ['Vue.js', 'Laravel', 'Payment Gateway', 'SEO Optimized', 'Multi-Currency'],
+                    icon: 'fa-bag-shopping',
+                    gradient: 'from-fuchsia-900/50 via-purple-900/50 to-blue-900/60'
+                },
+                {
+                    id: 5,
+                    title: 'تطبيق محفظتي للدفع الرقمي',
+                    category: 'app',
+                    categoryLabel: 'تطبيقات جوال',
+                    summary: 'تطبيق مالي لإدارة المصاريف الشخصية وتحويل المدفوعات السريعة عبر رمز QR بأعلى معايير التشفير.',
+                    fullDesc: 'تطبيق تقنية مالية (FinTech) يركز على الأمان وسهولة الاستخدام، يوفر تقارير تحليلية ذكية للإنفاق الشهري، تنبيهات الفواتير، والمصادقة البيومترية (بصمة الوجه والإصبع).',
+                    tech: ['React Native', 'Biometric Auth', 'End-to-End Encryption', 'Node.js'],
+                    icon: 'fa-wallet',
+                    gradient: 'from-indigo-900/60 via-blue-900/50 to-cyan-900/50'
+                },
+                {
+                    id: 6,
+                    title: 'لوحة تحكم اللوجستيات والأساطيل',
+                    category: 'system',
+                    categoryLabel: 'أنظمة برمجية',
+                    summary: 'منصة مركزية لشركات النقل والشحن لمتابعة حركة الشاحنات، استهلاك الوقود، وجدولة الصيانة.',
+                    fullDesc: 'نظام مؤسسي لإدارة سلاسل الإمداد والأساطيل التجارية، يعرض بيانات حية عبر رسوم بيانية تفاعلية وينبه الإدارة بأي تأخير أو مواعيد صيانة دورية.',
+                    tech: ['React', 'D3.js Charts', 'WebSockets', 'PostgreSQL', 'Docker'],
+                    icon: 'fa-truck-fast',
+                    gradient: 'from-slate-900/80 via-indigo-900/50 to-purple-900/60'
+                }
+            ];
+
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            function renderProjects(filter = 'all') {
+                portfolioGrid.innerHTML = '';
+                const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+                filtered.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer';
+                    card.innerHTML = `
+                        <div>
+                            <!-- Visual Banner -->
+                            <div class="h-48 bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between relative overflow-hidden border-b border-white/10">
+                                <div class="flex items-center justify-between relative z-10">
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-black/40 backdrop-blur-md text-white border border-white/10">
+                                        ${project.categoryLabel}
+                                    </span>
+                                    <span class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white group-hover:bg-odi-purple transition-colors">
+                                        <i class="fa-solid fa-arrow-up-left text-sm"></i>
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-center my-auto relative z-10">
+                                    <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-3xl text-white group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid ${project.icon}"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-6">
+                                <h3 class="font-heading font-bold text-xl text-white group-hover:text-odi-cyan transition-colors mb-2.5">
+                                    ${project.title}
+                                </h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    ${project.summary}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 pt-2 flex flex-wrap gap-2">
+                            ${project.tech.slice(0, 3).map(t => `<span class="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/5">${t}</span>`).join('')}
+                        </div>
+                    `;
+
+                    card.addEventListener('click', () => openProjectModal(project));
+                    portfolioGrid.appendChild(card);
+                });
+            }
+
+            // Filter Click Events
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-gradient-to-r', 'from-odi-violet', 'to-odi-blue', 'text-white');
+                        b.classList.add('bg-white/5', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-gradient-to-r', 'from-odi-violet', 'to-odi-blue', 'text-white');
+                    btn.classList.remove('bg-white/5', 'text-slate-300');
+                    renderProjects(btn.dataset.filter);
+                });
+            });
+
+            renderProjects();
+
+            // 3. Project Modal Logic
+            const modal = document.getElementById('project-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const closeModalSecondary = document.getElementById('modal-close-secondary');
+            const modalRequestSimilar = document.getElementById('modal-request-similar');
+
+            function openProjectModal(project) {
+                document.getElementById('modal-badge').textContent = project.categoryLabel;
+                document.getElementById('modal-title').textContent = project.title;
+                document.getElementById('modal-desc').textContent = project.fullDesc;
+
+                const banner = document.getElementById('modal-banner');
+                banner.className = `w-full h-44 rounded-2xl mb-5 flex items-center justify-center relative overflow-hidden border border-white/10 bg-gradient-to-br ${project.gradient}`;
+                banner.innerHTML = `
+                    <div class="w-20 h-20 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-4xl text-white">
+                        <i class="fa-solid ${project.icon}"></i>
+                    </div>
+                `;
+
+                const techContainer = document.getElementById('modal-tech');
+                techContainer.innerHTML = project.tech.map(t => 
+                    `<span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-odi-cyan">${t}</span>`
+                ).join('');
+
+                modalRequestSimilar.onclick = () => {
+                    closeModal();
+                    const detailsInput = document.getElementById('project-details');
+                    detailsInput.value = `أرغب في طلب مشروع مشابه لـ (${project.title}). `;
+                    detailsInput.focus();
+                };
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            closeModalSecondary.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // 4. Interactive Project Estimator Logic
+            let basePrice = 250;
+            let baseDays = 10;
+            let selectedTypeName = 'موقع تعريفي';
+
+            const typeBtns = document.querySelectorAll('.est-type-btn');
+            const featureCheckboxes = document.querySelectorAll('.est-feature');
+            const estSelectedTypeEl = document.getElementById('est-selected-type');
+            const estTotalPriceEl = document.getElementById('est-total-price');
+            const estTotalDaysEl = document.getElementById('est-total-days');
+            const applyEstimateBtn = document.getElementById('apply-estimate-btn');
+
+            function updateEstimate() {
+                let extraPrice = 0;
+                let extraDays = 0;
+
+                featureCheckboxes.forEach(cb => {
+                    if (cb.checked) {
+                        extraPrice += parseInt(cb.dataset.price, 10);
+                        extraDays += parseInt(cb.dataset.days, 10);
+                    }
+                });
+
+                const finalPrice = basePrice + extraPrice;
+                const finalDays = baseDays + extraDays;
+
+                estSelectedTypeEl.textContent = selectedTypeName;
+                estTotalPriceEl.textContent = finalPrice.toLocaleString('en-US');
+                estTotalDaysEl.textContent = `${finalDays} يوم عمل تقريباً`;
+            }
+
+            typeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    typeBtns.forEach(b => {
+                        b.classList.remove('active', 'border-odi-purple', 'bg-odi-purple/15');
+                        b.classList.add('border-white/10', 'bg-white/[0.03]');
+                    });
+                    btn.classList.add('active', 'border-odi-purple', 'bg-odi-purple/15');
+                    btn.classList.remove('border-white/10', 'bg-white/[0.03]');
+
+                    basePrice = parseInt(btn.dataset.price, 10);
+                    baseDays = parseInt(btn.dataset.days, 10);
+                    selectedTypeName = btn.dataset.type;
+                    updateEstimate();
+                });
+            });
+
+            featureCheckboxes.forEach(cb => {
+                cb.addEventListener('change', updateEstimate);
+            });
+
+            applyEstimateBtn.addEventListener('click', () => {
+                const selectedFeatures = [];
+                featureCheckboxes.forEach(cb => {
+                    if (cb.checked) selectedFeatures.push(cb.dataset.name);
+                });
+
+                const featuresText = selectedFeatures.length > 0 
+                    ? `\nالإضافات المختارة: ${selectedFeatures.join('، ')}` 
+                    : '';
+
+                const summaryText = `طلب مشروع جديد من حاسبة أودي:\n- نوع المشروع: ${selectedTypeName}\n- التكلفة التقديرية: ${estTotalPriceEl.textContent} ريال عُماني\n- المدة المتوقعة: ${estTotalDaysEl.textContent}${featuresText}\n\nتفاصيل إضافية: `;
+
+                const contactSection = document.getElementById('contact');
+                const detailsField = document.getElementById('project-details');
+                detailsField.value = summaryText;
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => detailsField.focus(), 600);
+            });
+
+            // 5. Contact Form Submission Feedback
+            const contactForm = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success-msg');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                successMsg.classList.remove('hidden');
+                contactForm.reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 8000);
+            });
+
+            // 6. Smooth Scroll Reveal Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
